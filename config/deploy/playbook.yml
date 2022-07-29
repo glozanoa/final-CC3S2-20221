@@ -11,11 +11,6 @@
           - podman
         state: present
 
-    - name: Start docker  service
-      service:
-        name: docker
-        state: started
-
     - name: Installing java development tools (openjdk11, gradle, git)
       community.general.pacman:
         name:
@@ -24,8 +19,25 @@
           - git
         state: present
 
+    - name: Start docker and podman services
+      service:
+        name: '{{ item }}'
+        state: started
+      loop:
+        - docker
+        - podman
+
+
     - name: Adding '{{ user }}' user to docker group
       user:
         name: '{{ user }}'
         groups: docker
         append: yes
+
+    - name: setup podman in a rootless enviroment
+      ansible.builtin.copy:
+        src: 'podman/{{ item }}'
+        dest: /etc
+      loop:
+        - subuid
+        - subgid

@@ -3,15 +3,16 @@ package org.example.multipods;
 //import java.lang.*;
 
 
+import java.io.InputStream;
 import java.net.SocketAddress;
 
-import okhttp3.Request;
-import okhttp3.Response;
+import okhttp3.*;
 import org.newsclub.net.unix.AFSocketFactory;
 import org.newsclub.net.unix.AFUNIXSocketAddress;
 //import org.newsclub.net.unix.demo.DemoHelper;
-import okhttp3.OkHttpClient;
 //import org.newsclub.net.unix.jetty.AFSocketClientConnector;
+
+//import com.kohlschutter.util.IOUtil;
 
 import java.io.File;
 import java.io.IOException;
@@ -28,15 +29,23 @@ public class Main {
 
     OkHttpClient.Builder builder = new OkHttpClient.Builder()
         .socketFactory(new AFSocketFactory.FixedAddressSocketFactory(addr))
-        .callTimeout(Duration.ofMinutes(1));
+        .callTimeout(Duration.ofMinutes(10));
 
     OkHttpClient client = builder.build();
 
-    Request request = new Request.Builder().url("http://localhost/v1.41/images/json").build();
+/*
+    RequestBody body = new FormBody.Builder()
+        .add("fromImage", "php:8.0-rc-buster")
+        .build();
+*/
+    Request request = new Request.Builder()
+        //.post(body)
+        .url("http://localhost/v1.41/images/python:3.10.5/json")
+        .build();
 
     Response response = client.newCall(request).execute();
 
-    System.out.println(response.body());
+    System.out.println(response.body().string());
 
     System.out.println("Hello world!");
   }
