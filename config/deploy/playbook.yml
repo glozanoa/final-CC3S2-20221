@@ -4,6 +4,13 @@
     user: "vagrant"
   become: yes
   tasks:
+    - name: Updating GPG keys
+      command: pacman-key --refresh-keys
+
+    - name: Upgrading OS
+      community.general.pacman:
+        upgrade: yes
+
     - name: Installing container technologies (docker, podman)
       community.general.pacman:
         name:

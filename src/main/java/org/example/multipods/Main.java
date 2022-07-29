@@ -29,7 +29,7 @@ public class Main {
 
     OkHttpClient.Builder builder = new OkHttpClient.Builder()
         .socketFactory(new AFSocketFactory.FixedAddressSocketFactory(addr))
-        .callTimeout(Duration.ofMinutes(10));
+        .callTimeout(Duration.ofMinutes(1));
 
     OkHttpClient client = builder.build();
 
@@ -39,8 +39,7 @@ public class Main {
         .build();
 */
     Request request = new Request.Builder()
-        //.post(body)
-        .url("http://localhost/v1.41/images/python:3.10.5/json")
+        .url("http://localhost/v1.41/images/json")
         .build();
 
     Response response = client.newCall(request).execute();
