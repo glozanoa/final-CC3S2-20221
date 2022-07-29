@@ -1,4 +1,6 @@
-package org.example.multipods;
+package org.example.multipods.podman;
+
+import org.example.multipods.Pod;
 
 public class PodmanPod extends Pod {
   public PodmanPod() {
