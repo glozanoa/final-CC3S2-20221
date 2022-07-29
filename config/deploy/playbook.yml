@@ -1,0 +1,31 @@
+---
+- hosts: all
+  vars:
+    user: "vagrant"
+  become: yes
+  tasks:
+    - name: Installing container technologies (docker, podman)
+      community.general.pacman:
+        name:
+          - docker
+          - podman
+        state: present
+
+    - name: Start docker  service
+      service:
+        name: docker
+        state: started
+
+    - name: Installing java development tools (openjdk11, gradle, git)
+      community.general.pacman:
+        name:
+          - gradle
+          - jdk11-openjdk
+          - git
+        state: present
+
+    - name: Adding '{{ user }}' user to docker group
+      user:
+        name: '{{ user }}'
+        groups: docker
+        append: yes

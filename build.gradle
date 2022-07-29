@@ -17,6 +17,14 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 
     implementation 'net.sourceforge.argparse4j:argparse4j:0.9.0'
+
+    implementation 'com.kohlschutter.junixsocket:junixsocket-core:2.5.1'
+    implementation 'com.squareup.okhttp3:okhttp:3.14.0'
+
+    //implementation 'com.kohlschutter.junixsocket:junixsocket-jetty:2.5.1'
+
+    //implementation("com.squareup.okhttp3:okhttp:4.10.0")
+    //implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.10.0'
 }
 
 test {
