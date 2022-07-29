@@ -1,8 +1,8 @@
 package org.example.multipods;
 
-public class DockerPod extends Pod {
+public class DockerPod extends Pod{
   public DockerPod() {
-
+    ;
   }
 
   @Override
