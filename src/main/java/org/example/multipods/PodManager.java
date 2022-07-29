@@ -13,14 +13,15 @@ public class PodManager {
   }
 
   public PodManager getInstance() {
-    if(instance == null) {
+    if (instance == null) {
       instance = new PodManager();
     }
     return instance;
   }
 
-  public String createController(ContainerFactory factory, String image, String tag){
+  public String createController(ContainerFactory factory, String image, String tag) {
     //PodImage podImage = factory.
+    return null;
   }
 
   public void exec(String podId, String cmd){
