@@ -3,15 +3,11 @@ package org.example.multipods.docker;
 import org.example.multipods.*;
 import org.example.multipods.podman.PodmanImage;
 
-public class DockerFactory extends DockerImage implements ContainerFactory {
-
-  public DockerFactory(String name, String tag) {
-    super(name, tag);
-  }
+public class DockerFactory implements ContainerFactory {
 
   @Override
   public Pod createPod(PodImage image) {
-    return new DockerPod();
+    return new DockerPod(image);
   }
 
   @Override

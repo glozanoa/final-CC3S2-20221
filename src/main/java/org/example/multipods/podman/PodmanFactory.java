@@ -3,17 +3,12 @@ package org.example.multipods.podman;
 import org.example.multipods.ContainerFactory;
 import org.example.multipods.Pod;
 import org.example.multipods.PodImage;
-import org.example.multipods.PodmanPod;
 
-public class PodmanFactory extends PodmanImage implements ContainerFactory {
-
-  public PodmanFactory(String name, String tag) {
-    super(name, tag);
-  }
+public class PodmanFactory implements ContainerFactory {
 
   @Override
   public Pod createPod(PodImage image) {
-    return new PodmanPod();
+    return new PodmanPod(image);
   }
 
   @Override
