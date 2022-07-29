@@ -8,7 +8,5 @@ public class DockerImage extends PodImage {
   }
 
   @Override
-  public void pull() {
-
-  }
+  public void pull() { }
 }
