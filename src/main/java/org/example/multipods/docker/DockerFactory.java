@@ -16,4 +16,9 @@ public class DockerFactory implements ContainerFactory {
     DockerImage image = new DockerImage(name, tag);
     image.setApiConsumer();
   }
+
+  @Override
+  public ApiConsumer createApiConsumer() {
+    return null;
+  }
 }
