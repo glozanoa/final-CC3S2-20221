@@ -9,8 +9,8 @@ public class PodmanPod extends Pod {
   }
 
   @Override
-  public void run() {
-    System.out.println("Run PodmanPod");
+  public String run() {
+    return "Run PodmanPod";
   }
 
   @Override

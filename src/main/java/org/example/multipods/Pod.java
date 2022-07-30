@@ -1,5 +1,7 @@
 package org.example.multipods;
 
+import java.io.IOException;
+
 public abstract class Pod {
   protected PodImage image;
 
@@ -9,7 +11,7 @@ public abstract class Pod {
 
   public abstract String run();
 
-  public abstract void create();
+  public abstract void create() throws IOException;
 
   public void exec(String cmd) {
     ;
