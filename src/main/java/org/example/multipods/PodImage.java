@@ -17,6 +17,10 @@ public abstract class PodImage {
 
   public abstract void pull();
 
+  public void setApiConsumer(ApiConsumer apiConsumer){
+    this.apiConsumer = apiConsumer;
+  }
+
   @Override
   public String toString() {
     return this.name + this.tag; // python:3.10

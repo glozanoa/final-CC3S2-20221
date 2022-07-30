@@ -12,6 +12,8 @@ public class DockerFactory implements ContainerFactory {
 
   @Override
   public PodImage createImage(String name, String tag) {
-    return new DockerImage(name, tag);
+
+    DockerImage image = new DockerImage(name, tag);
+    image.setApiConsumer();
   }
 }
