@@ -1,21 +1,17 @@
 package org.example.multipods.docker;
 
-import org.example.multipods.ContainerFactory;
-import org.example.multipods.PodImage;
+import org.example.multipods.*;
+import org.example.multipods.podman.PodmanImage;
 
-public class DockerFactory extends DockerImage implements ContainerFactory {
+public class DockerFactory implements ContainerFactory {
 
-  public DockerFactory(String name, String tag) {
-    super(name, tag);
+  @Override
+  public Pod createPod(PodImage image) {
+    return new DockerPod(image);
   }
 
   @Override
-  public void createPod(PodImage image) {
-
-  }
-
-  @Override
-  public void createImage(String name, String tag) {
-
+  public PodImage createImage(String name, String tag) {
+    return new DockerImage(name, tag);
   }
 }
