@@ -1,13 +1,24 @@
 package org.example.multipods;
 
 public abstract class PodImage {
-  String name;
-  String tag;
+  private String name;
+  private String tag;
 
+  protected ApiConsumer apiConsumer;
+
+  public PodImage(String name){
+    this.name = name;
+    this.tag = "latest";
+  }
   public PodImage(String name, String tag) {
     this.name = name;
     this.tag = tag;
   }
 
-  public void pull() {}
+  public abstract void pull();
+
+  @Override
+  public String toString() {
+    return this.name + this.tag; // python:3.10
+  }
 }

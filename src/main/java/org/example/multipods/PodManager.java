@@ -12,16 +12,23 @@ public class PodManager {
     instance = this;
   }
 
-  public PodManager getInstance() {
+  public static PodManager getInstance() {
     if (instance == null) {
       instance = new PodManager();
     }
     return instance;
   }
 
-  public String createController(ContainerFactory factory, String image, String tag) {
-    //PodImage podImage = factory.
-    return null;
+  public String runController(ContainerFactory factory, String image, String tag) {
+    PodImage podImage = factory.createImage(image, tag);
+    Pod pod = factory.createPod(podImage);
+
+    PodController podController = new PodController(pod);
+
+    String podControllerId = podController.run();
+    controllers.put(podControllerId, podController);
+
+    return podControllerId;
   }
 
   public void exec(String podId, String cmd){

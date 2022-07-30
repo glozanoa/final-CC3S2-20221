@@ -7,7 +7,7 @@ public abstract class Pod {
     this.image = image;
   }
 
-  public abstract void run();
+  public abstract String run();
 
   public abstract void create();
 
