@@ -24,6 +24,6 @@ public abstract class PodImage {
 
   @Override
   public String toString() {
-    return this.name + this.tag; // python:3.10
+    return this.name + ":" + this.tag; // python:3.10
   }
 }

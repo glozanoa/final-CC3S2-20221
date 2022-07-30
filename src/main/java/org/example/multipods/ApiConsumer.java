@@ -28,7 +28,7 @@ public abstract class ApiConsumer {
   }
 
   public String getUrl(){
-    return "http://" + ip + port + "/";
+    return "http://" + ip + ":" + port + "/";
   }
 
 }

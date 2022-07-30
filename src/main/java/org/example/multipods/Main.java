@@ -33,13 +33,14 @@ public class Main {
 
     OkHttpClient client = builder.build();
 
-/*
+
     RequestBody body = new FormBody.Builder()
-        .add("fromImage", "php:8.0-rc-buster")
+        .add("fromImage", "mongo:5.0")
         .build();
-*/
+
     Request request = new Request.Builder()
-        .url("http://localhost:80/v1.41/images/json")
+        .post(body)
+        .url("http://127.0.0.1:80/v1.41/images/create")
         .build();
 
     Response response = client.newCall(request).execute();

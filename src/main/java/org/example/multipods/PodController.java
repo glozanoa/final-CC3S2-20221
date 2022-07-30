@@ -14,4 +14,9 @@ public class PodController {
   public void exec(String cmd) {
     pod.exec(cmd);
   }
+
+  @Override
+  public String toString() {
+    return "PodController(pod=" + pod  + ")";
+  }
 }

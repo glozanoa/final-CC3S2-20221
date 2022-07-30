@@ -14,6 +14,7 @@ public class DockerImage extends PodImage {
 
   @Override
   public void pull() {
+    System.out.println("pulling docker image " + toString());
     RequestBody body = new FormBody.Builder()
         .add("formImage", toString())
         .build();
@@ -23,7 +24,10 @@ public class DockerImage extends PodImage {
         .url(apiConsumer.getUrl())
         .build();
 
+    System.out.println("request: " + request.toString());
+
     try{
+      System.out.println("apiConsumer: " + apiConsumer.toString());
       apiConsumer.executeRequest(request);
     }
     catch (IOException error){

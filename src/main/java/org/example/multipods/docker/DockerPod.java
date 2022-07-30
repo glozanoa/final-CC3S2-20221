@@ -9,27 +9,31 @@ import org.example.multipods.PodImage;
 import java.io.IOException;
 
 public class DockerPod extends Pod {
-  private DockerApiConsumer apiClient;
-  private RequestBody requestBody;
 
   public DockerPod(PodImage image) {
     super(image);
-    requestBody = new FormBody.Builder()
-            .add("Image", image.toString())
-            .build();
   }
 
   @Override
-  public String run() {
-    return "Run DockerPod";
-  }
+  public String create() {
+    System.out.println("Creating the docker pod");
 
-  @Override
-  public void create() throws IOException {
+    RequestBody requestBody = new FormBody.Builder()
+        .add("Image", image.toString())
+        .build();
+
     Request request = new Request.Builder()
             .post(requestBody)
-            .url(apiClient.getUrl() + "/v1.41/containers/create")
+            .url(apiConsumer.getUrl() + "/v1.41/containers/create")
             .build();
-    apiClient.executeRequest(request);
+
+    try{
+      apiConsumer.executeRequest(request);
+    }
+    catch (IOException error){
+      System.err.println(error);
+    }
+
+    return "101";
   }
 }

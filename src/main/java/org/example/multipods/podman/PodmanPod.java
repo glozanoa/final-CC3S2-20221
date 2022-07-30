@@ -9,12 +9,7 @@ public class PodmanPod extends Pod {
   }
 
   @Override
-  public String run() {
-    return "Run PodmanPod";
-  }
-
-  @Override
-  public void create() {
-
+  public String create() {
+    return "00";
   }
 }

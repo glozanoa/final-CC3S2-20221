@@ -20,10 +20,13 @@ public class PodManager {
   }
 
   public String runController(ContainerFactory factory, String image, String tag) {
+    System.out.println("Running PodManager.runController( factory: " + factory.getClass() + ", image: " + image + ":" + tag);
     PodImage podImage = factory.createImage(image, tag);
     Pod pod = factory.createPod(podImage);
 
     PodController podController = new PodController(pod);
+
+    System.out.println("podController: " + podController.toString());
 
     String podControllerId = podController.run();
     controllers.put(podControllerId, podController);
