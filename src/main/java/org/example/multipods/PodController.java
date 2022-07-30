@@ -7,8 +7,8 @@ public class PodController {
     this.pod = pod;
   }
 
-  public void run() {
-    pod.run();
+  public String run() {
+    return pod.run();
   }
 
   public void exec(String cmd) {

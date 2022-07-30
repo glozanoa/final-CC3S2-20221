@@ -39,7 +39,7 @@ public class Main {
         .build();
 */
     Request request = new Request.Builder()
-        .url("http://localhost/v1.41/images/json")
+        .url("http://localhost:80/v1.41/images/json")
         .build();
 
     Response response = client.newCall(request).execute();

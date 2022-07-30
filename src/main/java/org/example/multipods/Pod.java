@@ -4,7 +4,7 @@ public abstract class Pod {
   public Pod() {
   }
 
-  public abstract void run();
+  public abstract String run();
 
   public void exec(String cmd) {
     ;

@@ -1,7 +1,7 @@
 package org.example.multipods;
 
 public interface ContainerFactory {
-  public void createPod(PodImage image);
+  public Pod createPod(PodImage image);
 
-  public void createImage(String name, String tag);
+  public PodImage createImage(String name, String tag);
 }
