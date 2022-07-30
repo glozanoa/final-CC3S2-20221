@@ -9,6 +9,8 @@ public abstract class Pod {
 
   public abstract void run();
 
+  public abstract void create();
+
   public void exec(String cmd) {
     ;
   }

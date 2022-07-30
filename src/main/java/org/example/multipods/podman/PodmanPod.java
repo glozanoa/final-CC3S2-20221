@@ -12,4 +12,9 @@ public class PodmanPod extends Pod {
   public void run() {
     System.out.println("Run PodmanPod");
   }
+
+  @Override
+  public void create() {
+
+  }
 }
