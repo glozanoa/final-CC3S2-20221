@@ -14,24 +14,25 @@ public class DockerImage extends PodImage {
 
   @Override
   public void pull() {
-    System.out.println("pulling docker image " + toString());
+    System.out.println("pulling docker image " + super.toString());
     RequestBody body = new FormBody.Builder()
-        .add("formImage", toString())
+        .add("fromImage", super.toString())
         .build();
 
     Request request = new Request.Builder()
+        .url(apiConsumer.getUrl() + "/v1.41/images/create")
         .post(body)
-        .url(apiConsumer.getUrl())
         .build();
 
     System.out.println("request: " + request.toString());
+    System.out.println("request body: "+ request.body().toString());
 
     try{
       System.out.println("apiConsumer: " + apiConsumer.toString());
       apiConsumer.executeRequest(request);
     }
     catch (IOException error){
-      System.err.println(error);
+      error.printStackTrace();
     }
   }
 }

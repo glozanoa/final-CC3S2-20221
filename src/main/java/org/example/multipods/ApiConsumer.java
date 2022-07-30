@@ -20,7 +20,7 @@ public abstract class ApiConsumer {
   public ApiConsumer(SocketAddress socket) {
     client = new OkHttpClient.Builder()
             .socketFactory(new AFSocketFactory.FixedAddressSocketFactory(socket))
-            .callTimeout(Duration.ofMinutes(1)).build();
+            .callTimeout(Duration.ofMinutes(100)).build();
   }
 
   public Response executeRequest(Request request) throws IOException {
@@ -28,7 +28,7 @@ public abstract class ApiConsumer {
   }
 
   public String getUrl(){
-    return "http://" + ip + ":" + port + "/";
+    return "http://" + ip + ":" + port;
   }
 
 }

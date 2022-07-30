@@ -39,8 +39,8 @@ public class Main {
         .build();
 
     Request request = new Request.Builder()
-        .post(body)
         .url("http://127.0.0.1:80/v1.41/images/create")
+        .post(body)
         .build();
 
     Response response = client.newCall(request).execute();
