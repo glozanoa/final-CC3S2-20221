@@ -1,0 +1,50 @@
+---
+- hosts: all
+  vars:
+    user: "vagrant"
+  become: yes
+  tasks:
+    - name: Updating GPG keys
+      command: pacman-key --refresh-keys
+
+    - name: Upgrading OS
+      community.general.pacman:
+        upgrade: yes
+
+    - name: Installing container technologies (docker, podman)
+      community.general.pacman:
+        name:
+          - docker
+          - podman
+        state: present
+
+    - name: Installing java development tools (openjdk11, gradle, git)
+      community.general.pacman:
+        name:
+          - gradle
+          - jdk11-openjdk
+          - git
+        state: present
+
+    - name: Start docker and podman services
+      service:
+        name: '{{ item }}'
+        state: started
+      loop:
+        - docker
+        - podman
+
+
+    - name: Adding '{{ user }}' user to docker group
+      user:
+        name: '{{ user }}'
+        groups: docker
+        append: yes
+
+    - name: setup podman in a rootless enviroment
+      ansible.builtin.copy:
+        src: 'podman/{{ item }}'
+        dest: /etc
+      loop:
+        - subuid
+        - subgid
