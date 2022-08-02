@@ -1,29 +1,31 @@
 ---
 - hosts: all
   vars:
-    user: "vagrant"
+    - user: "vagrant"
   become: yes
+
   tasks:
-    - name: Updating GPG keys
-      command: pacman-key --refresh-keys
-
-    - name: Upgrading OS
-      community.general.pacman:
-        upgrade: yes
-
-    - name: Installing container technologies (docker, podman)
-      community.general.pacman:
-        name:
-          - docker
-          - podman
+    - name: Add podman apt key
+      apt_key:
+        url: "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_20.04/Release.key"
         state: present
 
-    - name: Installing java development tools (openjdk11, gradle, git)
-      community.general.pacman:
+    - name: Add podman apt repository
+      apt_repository:
+        repo: "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_20.04/ /"
+        state: present
+        filename: "devel:kubic:libcontainers:stable"
+        update_cache: yes
+
+    - name: Upgrading OS
+      ansible.builtin.apt:
+        update_cache: yes
+
+    - name: Installing container technologies (docker, podman)
+      ansible.builtin.apt:
         name:
-          - gradle
-          - jdk11-openjdk
-          - git
+          - podman
+          - docker.io
         state: present
 
     - name: Start docker and podman services
@@ -48,3 +50,11 @@
       loop:
         - subuid
         - subgid
+
+    - name: Installing java development tools (openjdk11, gradle, git)
+      ansible.builtin.apt:
+        name:
+          - gradle
+          - openjdk-11-jdk
+          - git
+        state: present
