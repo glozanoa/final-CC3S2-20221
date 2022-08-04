@@ -13,5 +13,4 @@ public class PodmanApiConsumer extends ApiConsumer {
     public PodmanApiConsumer() throws SocketException {
         super(AFUNIXSocketAddress.of(new File("/run/podman/podman.sock")));
     }
-
 }

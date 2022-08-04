@@ -37,6 +37,10 @@ public abstract class ApiConsumer {
     client.newCall(request).enqueue(callback);
   }
 
+  public OkHttpClient getClient() {
+    return client;
+  }
+
   public String getUrl() {
     return "http://" + ip;
   }
