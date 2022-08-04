@@ -29,37 +29,12 @@ public abstract class ApiConsumer {
     return null;
   }
 
-  public Response executeRequest(Request request) throws IOException {
-    //client.newCall()
+  public void executeRequest(Request request, Callback callback) throws IOException {
 
     System.out.println("===================== RESTRICTED ZONE =====================");
 
-    SocketAddress addr = AFUNIXSocketAddress.of(new File("/run/docker.sock"));
 
-    OkHttpClient.Builder builder = new OkHttpClient.Builder()
-            .socketFactory(new AFSocketFactory.FixedAddressSocketFactory(addr))
-            .callTimeout(Duration.ofMinutes(1));
-
-    OkHttpClient localClient = builder.build();
-
-
-    RequestBody body = new FormBody.Builder()
-            .add("fromImage", "python")
-            .add("tag", "3.7")
-            .build();
-
-    Request localRequest = new Request.Builder()
-            .url("http://localhost/v1.41/images/json")
-            //.post(body)
-            .build();
-
-    //Response response = client.newCall(request).execute();
-
-
-    localClient.newCall(localRequest).execute();
-
-    //return client.newCall(request).execute();
-    return null;
+    client.newCall(localRequest).enqueue(callback);
   }
 
   public String getUrl(){

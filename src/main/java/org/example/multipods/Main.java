@@ -25,7 +25,7 @@ import java.time.Duration;
 public class Main {
   public static void main(String[] args) throws IOException {
 
-    SocketAddress addr = AFUNIXSocketAddress.of(new File("/run/docker.sock"));
+    SocketAddress addr = AFUNIXSocketAddress.of(new File("/var/run/docker.sock"));
 
     OkHttpClient.Builder builder = new OkHttpClient.Builder()
         .socketFactory(new AFSocketFactory.FixedAddressSocketFactory(addr))
@@ -36,7 +36,7 @@ public class Main {
 
     RequestBody body = new FormBody.Builder()
         .add("fromImage", "python")
-            .add("tag", "3.7")
+            .add("tag", "3.7-alpine3.15")
         .build();
 
     Request request = new Request.Builder()
@@ -44,9 +44,21 @@ public class Main {
         .post(body)
         .build();
 
-    Response response = client.newCall(request).execute();
+    Callback callback = new Callback() {
+      @Override
+      public void onFailure(Call call, IOException e) {
+        System.out.println("(FAILURE) Call: " + call.toString() + ", Exception: " + e.toString());
+      }
 
-    System.out.println(response.body().string());
+      @Override
+      public void onResponse(Call call, Response response) throws IOException {
+        System.out.println("(ON RESPONSE Call: " + call.toString() + ", Response: " + response.toString());
+      }
+    };
+
+    client.newCall(request).enqueue(callback);
+
+    //System.out.println(response.body().string());
 
     System.out.println("Hello world!");
   }
