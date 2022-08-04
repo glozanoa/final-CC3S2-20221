@@ -17,7 +17,7 @@ public class DockerPod extends Pod {
 
   @Override
   public void create(Callback callback) {
-    System.out.println("Creating the docker pod");
+    System.out.println("Creating docker pod");
 
     RequestBody requestBody = new FormBody.Builder()
         .add("Image", image.toString())
