@@ -8,6 +8,9 @@ import okhttp3.RequestBody;
 import org.example.multipods.Pod;
 import org.example.multipods.PodImage;
 
+/**
+ * Class DockerPod .
+ */
 public class DockerPod extends Pod {
 
   public DockerPod(PodImage image) {

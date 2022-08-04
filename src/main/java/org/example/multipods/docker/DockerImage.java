@@ -6,7 +6,9 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import org.example.multipods.PodImage;
 
-
+/**
+ * Class DockerImage .
+ */
 public class DockerImage extends PodImage {
   public DockerImage(String name, String tag) {
     super(name, tag);

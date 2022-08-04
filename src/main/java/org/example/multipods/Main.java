@@ -25,6 +25,9 @@ import org.newsclub.net.unix.AFUNIXSocketAddress;
  * Main class .
  */
 public class Main {
+  /**
+   *Method main .
+   */
   public static void main(String[] args) throws IOException {
 
     SocketAddress addr = AFUNIXSocketAddress.of(new File("/var/run/docker.sock"));
