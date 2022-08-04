@@ -3,13 +3,15 @@ package org.example.multipods;
 import okhttp3.*;
 import org.newsclub.net.unix.AFSocketFactory;
 import org.newsclub.net.unix.AFUNIXSocketAddress;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.Inet4Address;
 import java.net.SocketAddress;
 import java.time.Duration;
 
+/**
+ * Clase abstracta ApiConsumer
+ */
 public abstract class ApiConsumer {
   protected OkHttpClient client;
   private final String ip = "127.0.0.1";
