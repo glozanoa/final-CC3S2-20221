@@ -21,10 +21,6 @@ public abstract class ApiConsumer {
 
   public ApiConsumer() { }
 
-  /**
-   * Clase ApiConsumer.
-   * @param socket <>llenar aqui</>//
-   */
   public ApiConsumer(SocketAddress socket) {
     OkHttpClient.Builder builder = new OkHttpClient.Builder()
             .socketFactory(new AFSocketFactory.FixedAddressSocketFactory(socket))
