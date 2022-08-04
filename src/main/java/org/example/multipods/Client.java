@@ -2,8 +2,15 @@ package org.example.multipods;
 
 import org.example.multipods.docker.DockerFactory;
 
+/**
+ * Class Client .
+ */
 public class Client {
 
+  /**
+   * Method main .
+   *
+   */
   public static void main(String[] args) {
     PodManager podManager = PodManager.getInstance();
 

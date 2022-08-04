@@ -12,7 +12,7 @@ import org.newsclub.net.unix.AFSocketFactory;
 import org.newsclub.net.unix.AFUNIXSocketAddress;
 
 /**
- * Clase abstracta ApiConsumer.//
+ * Abstract class ApiConsumer .
  */
 public abstract class ApiConsumer {
   protected OkHttpClient client;
@@ -21,6 +21,10 @@ public abstract class ApiConsumer {
 
   public ApiConsumer() { }
 
+  /**
+   * Construct method ApiConsumer .
+   *
+   */
   public ApiConsumer(SocketAddress socket) {
     OkHttpClient.Builder builder = new OkHttpClient.Builder()
             .socketFactory(new AFSocketFactory.FixedAddressSocketFactory(socket))
