@@ -74,8 +74,3 @@ Pull a docker image
 ```bash
 ./gradlew multipod --args="-T DOCKER pull mongo 5.0"
 ```
-
-Pull a podman image
-```bash
-./gradlew multipod --args="-T PODMAN pull mongo 5.0"
-```
