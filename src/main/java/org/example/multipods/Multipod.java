@@ -2,18 +2,21 @@ package org.example.multipods;
 
 import net.sourceforge.argparse4j.ArgumentParsers;
 import net.sourceforge.argparse4j.impl.Arguments;
-import net.sourceforge.argparse4j.inf.*;
+import net.sourceforge.argparse4j.inf.ArgumentParser;
+import net.sourceforge.argparse4j.inf.ArgumentParserException;
+import net.sourceforge.argparse4j.inf.Namespace;
+import net.sourceforge.argparse4j.inf.Subparser;
+import net.sourceforge.argparse4j.inf.Subparsers;
 
 public class Multipod {
   protected static String image;
   protected static String tech;
 
-  public static void main(String[] args){
+  public static void main(String[] args) {
     ArgumentParser parser = commandParser();
     try {
       parseCmdArgs(parser, args);
-    }
-    catch (ArgumentParserException error){
+    } catch (ArgumentParserException error) {
       System.err.println(error);
     }
 
@@ -28,7 +31,8 @@ public class Multipod {
     Subparser parserRun = subparsers.addParser("run").help("Use this command to run a pod image");
     parserRun.addArgument("image").type(String.class)
             .help("Enter Name and Tag of the image to run (Example: mongo:10.0)");
-    Subparser parserPull = subparsers.addParser("pull").help("Use this command to pull a pod image");
+    Subparser parserPull = subparsers.addParser("pull")
+            .help("Use this command to pull a pod image");
     parserPull.addArgument("image").type(String.class)
             .help("Enter Name and Tag of the image to pull (Example: mongo:10.0)");
     parser.addArgument("--technology")
@@ -38,7 +42,8 @@ public class Multipod {
     return parser;
   }
 
-  public static void parseCmdArgs(ArgumentParser parser, String[] args) throws ArgumentParserException {
+  public static void parseCmdArgs(ArgumentParser parser, String[] args)
+          throws ArgumentParserException {
     Namespace ns = parser.parseArgs(args);
     //parser.
     //image = ns.getString("run");
