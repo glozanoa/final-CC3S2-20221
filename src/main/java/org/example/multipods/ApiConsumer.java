@@ -1,15 +1,11 @@
 package org.example.multipods;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.Inet4Address;
 import java.net.SocketAddress;
 import java.time.Duration;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import org.newsclub.net.unix.AFSocketFactory;
-import org.newsclub.net.unix.AFUNIXSocketAddress;
 
 /**
  * Abstract class ApiConsumer .
