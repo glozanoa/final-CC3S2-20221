@@ -1,7 +1,6 @@
 package org.example.multipods;
 
 import net.sourceforge.argparse4j.ArgumentParsers;
-import net.sourceforge.argparse4j.impl.Arguments;
 import net.sourceforge.argparse4j.inf.ArgumentParser;
 import net.sourceforge.argparse4j.inf.ArgumentParserException;
 import net.sourceforge.argparse4j.inf.Namespace;
@@ -9,11 +8,6 @@ import net.sourceforge.argparse4j.inf.Subparser;
 import net.sourceforge.argparse4j.inf.Subparsers;
 import org.example.multipods.docker.DockerFactory;
 import org.example.multipods.podman.PodmanFactory;
-
-enum Command {
-  PULL,
-  RUN
-}
 
 /**
  * Class Multipod .
@@ -40,7 +34,7 @@ public class Multipod {
       ContainerFactory factory;
 
       // factory selector
-      switch (technology){
+      switch (technology) {
         case PODMAN:
           factory = new PodmanFactory();
           break;
@@ -53,13 +47,16 @@ public class Multipod {
       PodManager manager = PodManager.getInstance();
 
       // command selector
-      switch (command){
+      switch (command) {
         case RUN:
           manager.runController(factory, imageName, imageTag);
           break;
 
         case PULL:
           manager.pullPodImage(factory, imageName, imageTag);
+          break;
+
+        default:
           break;
       }
 

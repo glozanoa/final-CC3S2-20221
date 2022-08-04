@@ -12,7 +12,7 @@ public class PodmanImage extends PodImage {
   }
 
   @Override
-  public void pull(Callback callback){
+  public void pull(Callback callback) {
     System.out.println("Pulling podman image " + super.toString());
 
     RequestBody body = new FormBody.Builder()
