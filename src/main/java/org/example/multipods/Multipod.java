@@ -1,9 +1,8 @@
 package org.example.multipods;
 
 import net.sourceforge.argparse4j.ArgumentParsers;
-import net.sourceforge.argparse4j.inf.ArgumentParser;
-import net.sourceforge.argparse4j.inf.ArgumentParserException;
-import net.sourceforge.argparse4j.inf.Namespace;
+import net.sourceforge.argparse4j.impl.Arguments;
+import net.sourceforge.argparse4j.inf.*;
 
 public class Multipod {
   protected static String image;
@@ -18,12 +17,17 @@ public class Multipod {
     ArgumentParser parser = ArgumentParsers.newFor("Multipod").build()
             .defaultHelp(true)
             .description("Multipod - Command Line Options");
-    parser.addArgument("--run")
+    parser.addArgument("multipod")
+            .action(Arguments.storeTrue())
             .type(String.class)
-            .help("Name and Tag of the image to run (Example: mongo:10.0)");
-    parser.addArgument("--pull")
-            .type(String.class)
-            .help("Name and Tag of the image to pull (Example: mongo:10.0)");
+            .help("Use for enable multipod program");
+    Subparsers subparsers = parser.addSubparsers().help("sub-command help");
+    Subparser parserRun = subparsers.addParser("run").help("Use this command to run a pod image");
+    parserRun.addArgument("image").type(String.class)
+            .help("Enter Name and Tag of the image to run (Example: mongo:10.0)");
+    Subparser parserPull = subparsers.addParser("pull").help("Use this command to pull a pod image");
+    parserPull.addArgument("image").type(String.class)
+            .help("Enter Name and Tag of the image to pull (Example: mongo:10.0)");
     parser.addArgument("--technology")
             .type(String.class)
             .help("Technology to use for virtualization of the image (Docker or Podman)");
