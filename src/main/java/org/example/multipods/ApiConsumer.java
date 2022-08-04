@@ -1,15 +1,19 @@
 package org.example.multipods;
 
-import okhttp3.*;
-import org.newsclub.net.unix.AFSocketFactory;
-import org.newsclub.net.unix.AFUNIXSocketAddress;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.Inet4Address;
 import java.net.SocketAddress;
 import java.time.Duration;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import org.newsclub.net.unix.AFSocketFactory;
+import org.newsclub.net.unix.AFUNIXSocketAddress;
 
+/**
+ * Abstract class ApiConsumer .
+ */
 public abstract class ApiConsumer {
   protected OkHttpClient client;
   private final String ip = "127.0.0.1";
@@ -17,6 +21,10 @@ public abstract class ApiConsumer {
 
   public ApiConsumer() { }
 
+  /**
+   * Construct method ApiConsumer .
+   *
+   */
   public ApiConsumer(SocketAddress socket) {
     OkHttpClient.Builder builder = new OkHttpClient.Builder()
             .socketFactory(new AFSocketFactory.FixedAddressSocketFactory(socket))
@@ -29,8 +37,8 @@ public abstract class ApiConsumer {
     client.newCall(request).enqueue(callback);
   }
 
-  public String getUrl(){
-    return "http://" + ip ;
+  public String getUrl() {
+    return "http://" + ip;
   }
 
 }

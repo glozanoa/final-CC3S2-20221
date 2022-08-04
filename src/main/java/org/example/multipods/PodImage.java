@@ -1,10 +1,9 @@
 package org.example.multipods;
 
+import java.io.IOException;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
-
-import java.io.IOException;
 
 public abstract class PodImage {
   private String name;
@@ -12,7 +11,7 @@ public abstract class PodImage {
 
   protected ApiConsumer apiConsumer;
 
-  public PodImage(String name){
+  public PodImage(String name) {
     this.name = name;
     this.tag = "latest";
   }
@@ -22,7 +21,7 @@ public abstract class PodImage {
     this.tag = tag;
   }
 
-  public void pull(){
+  public void pull() {
     Callback emptyCallback = new Callback() {
       @Override
       public void onFailure(Call call, IOException e) {
@@ -36,14 +35,20 @@ public abstract class PodImage {
     };
     pull(emptyCallback);
   }
+
   public abstract void pull(Callback callback);
 
-  public void setApiConsumer(ApiConsumer apiConsumer){
+  public void setApiConsumer(ApiConsumer apiConsumer) {
     this.apiConsumer = apiConsumer;
   }
 
-  public String getName(){ return name; }
-  public String getTag(){ return tag; }
+  public String getName() {
+    return name;
+  }
+
+  public String getTag() {
+    return tag;
+  }
 
   @Override
   public String toString() {

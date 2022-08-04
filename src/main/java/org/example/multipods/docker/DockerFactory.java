@@ -1,10 +1,15 @@
 package org.example.multipods.docker;
 
-import org.example.multipods.*;
+import java.net.SocketException;
+import org.example.multipods.ApiConsumer;
+import org.example.multipods.ContainerFactory;
+import org.example.multipods.Pod;
+import org.example.multipods.PodImage;
 import org.example.multipods.podman.PodmanImage;
 
-import java.net.SocketException;
-
+/**
+ * Class DockerFactory .
+ */
 public class DockerFactory implements ContainerFactory {
 
   @Override
@@ -27,10 +32,9 @@ public class DockerFactory implements ContainerFactory {
   @Override
   public ApiConsumer createApiConsumer()  {
     DockerApiConsumer apiConsumer = null;
-    try{
+    try {
       apiConsumer = new DockerApiConsumer();
-    }
-    catch (SocketException error){
+    } catch (SocketException error) {
       System.err.println(error);
     }
 

@@ -1,11 +1,12 @@
 package org.example.multipods;
 
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
-
-import java.io.IOException;
-import java.util.*;
 
 public class PodManager {
   private static Map<String, PodController> controllers;
@@ -29,7 +30,8 @@ public class PodManager {
   }
 
   public void runController(ContainerFactory factory, String image, String tag) {
-    System.out.println("Running PodManager.runController( factory: " + factory.getClass() + ", image: " + image + ":" + tag);
+    System.out.println("Running PodManager.runController( factory: "
+            + factory.getClass() + ", image: " + image + ":" + tag);
     PodImage podImage = factory.createImage(image, tag);
     Pod pod = factory.createPod(podImage);
 

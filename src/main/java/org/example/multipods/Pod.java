@@ -1,11 +1,10 @@
 package org.example.multipods;
 
+import java.io.IOException;
+import java.util.Random;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
-
-import java.io.IOException;
-import java.util.Random;
 
 public abstract class Pod {
   protected PodImage image;
@@ -15,11 +14,11 @@ public abstract class Pod {
     this.image = image;
   }
 
-  public void setApiConsumer(ApiConsumer apiConsumer){
+  public void setApiConsumer(ApiConsumer apiConsumer) {
     this.apiConsumer = apiConsumer;
   }
 
-  public  void run(Callback callback){
+  public  void run(Callback callback) {
     System.out.println("(Pod.run) Running pod: " + toString());
 
     Callback pullCallback = new Callback() {
@@ -31,7 +30,8 @@ public abstract class Pod {
       @Override
       public void onResponse(Call call, Response response) throws IOException {
         //create(callback);
-        System.out.println("(ON RESPONSE) Call: " + call.toString() + ", Response: " + response.toString());
+        System.out.println("(ON RESPONSE) Call: " + call.toString()
+                + ", Response: " + response.toString());
       }
     };
 

@@ -2,11 +2,18 @@ package org.example.multipods;
 
 //import java.lang.*;
 
-
+import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.SocketAddress;
-
-import okhttp3.*;
+import java.time.Duration;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.FormBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 import org.newsclub.net.unix.AFSocketFactory;
 import org.newsclub.net.unix.AFUNIXSocketAddress;
 //import org.newsclub.net.unix.demo.DemoHelper;
@@ -14,15 +21,13 @@ import org.newsclub.net.unix.AFUNIXSocketAddress;
 
 //import com.kohlschutter.util.IOUtil;
 
-import java.io.File;
-import java.io.IOException;
-import java.time.Duration;
-
-
 /**
  * Main class .
  */
 public class Main {
+  /**
+   *Method main .
+   */
   public static void main(String[] args) throws IOException {
 
     SocketAddress addr = AFUNIXSocketAddress.of(new File("/var/run/docker.sock"));
@@ -51,7 +56,8 @@ public class Main {
 
       @Override
       public void onResponse(Call call, Response response) throws IOException {
-        System.out.println("(ON RESPONSE Call: " + call.toString() + ", Response: " + response.toString());
+        System.out.println("(ON RESPONSE Call: "
+            + call.toString() + ", Response: " + response.toString());
       }
     };
 
