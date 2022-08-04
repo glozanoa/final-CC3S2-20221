@@ -7,6 +7,9 @@ import okhttp3.RequestBody;
 import org.example.multipods.Pod;
 import org.example.multipods.PodImage;
 
+/**
+ * Implementación de la clase abstracta Pod para Podman
+ */
 public class PodmanPod extends Pod {
   public PodmanPod(PodImage image) {
     super(image);

@@ -8,6 +8,9 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
+/**
+ * PodManages es una clase singleton que administra varios podControllers.
+ */
 public class PodManager {
   private static Map<String, PodController> controllers;
   private static PodManager instance = null;
@@ -17,6 +20,11 @@ public class PodManager {
     instance = this;
   }
 
+  /**
+   * Método que crea instancias PodManager (patrón de diseño singleton) .
+   *
+   * @return Retorna la instancia singleton
+   */
   public static PodManager getInstance() {
     if (instance == null) {
       instance = new PodManager();
@@ -29,6 +37,13 @@ public class PodManager {
     podImage.pull();
   }
 
+  /**
+   * Controlador de container .
+   *
+   * @param factory es el objeto fábrica que creará las imágenes y los contenedores
+   * @param image es el nombre de la imagen que deseamos crear
+   * @param tag es la versión de la imagen
+   */
   public void runController(ContainerFactory factory, String image, String tag) {
     System.out.println("Running PodManager.runController( factory: "
             + factory.getClass() + ", image: " + image + ":" + tag);
