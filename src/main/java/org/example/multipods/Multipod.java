@@ -15,10 +15,16 @@ enum Command {
   RUN
 }
 
+/**
+ * Class Multipod .
+ */
 public class Multipod {
   protected static String image;
   protected static String tech;
 
+  /**
+   * Method main .
+   */
   public static void main(String[] args) {
     ArgumentParser parser = commandParser();
     try {
@@ -64,6 +70,9 @@ public class Multipod {
 
   }
 
+  /**
+   * Static method commandParser .
+   */
   public static ArgumentParser commandParser() {
     ArgumentParser parser = ArgumentParsers.newFor("Multipod").build()
             .defaultHelp(true)

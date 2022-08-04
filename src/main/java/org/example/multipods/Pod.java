@@ -6,6 +6,9 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
+/**
+ * Abstract class Pod .
+ */
 public abstract class Pod {
   protected PodImage image;
   protected ApiConsumer apiConsumer;
@@ -18,7 +21,10 @@ public abstract class Pod {
     this.apiConsumer = apiConsumer;
   }
 
-  public  void run(Callback callback) {
+  /**
+   *Method run .
+   */
+  public void run(Callback callback) {
     System.out.println("(Pod.run) Running pod: " + toString());
 
     Callback pullCallback = new Callback() {
