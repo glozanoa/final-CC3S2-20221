@@ -11,19 +11,15 @@
 
 ## Quickstart
 
-#### Run multipods
-* CLI version
+Get `multipod` subcommands and options
 ```bash
-./gradlew minimal 
-
-# show options
- ./gradlew minimal --args="-h"
+./gradlew multipod --args=-h
 ```
 
-* GUI version
 
+Pull a docker image
 ```bash
-./gradlew run
+./gradlew multipod --args="-T DOCKER pull mongo 5.0"
 ```
 
 #### Run unit tests
@@ -31,7 +27,7 @@
 ./gradlew test
 ```
 
-#### Build Game
+#### Build
 
 ```bash
 # include pmd and checkstyle tasks
@@ -59,18 +55,4 @@
 ```bash
 # html and xml coverage reports are generated at build/reports/jacoco
 ./gradlew jacocoTestReport
-```
-
-
-## Quickstart
-
-Get `multipod` subcommands and options
-```bash
-./gradlew multipod --args=-h
-```
-
-
-Pull a docker image
-```bash
-./gradlew multipod --args="-T DOCKER pull mongo 5.0"
 ```
