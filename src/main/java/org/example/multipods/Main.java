@@ -28,8 +28,7 @@ public class Main {
     SocketAddress addr = AFUNIXSocketAddress.of(new File("/var/run/docker.sock"));
 
     OkHttpClient.Builder builder = new OkHttpClient.Builder()
-        .socketFactory(new AFSocketFactory.FixedAddressSocketFactory(addr))
-        .callTimeout(Duration.ofMinutes(1));
+        .socketFactory(new AFSocketFactory.FixedAddressSocketFactory(addr));
 
     OkHttpClient client = builder.build();
 
