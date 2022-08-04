@@ -8,10 +8,16 @@ import net.sourceforge.argparse4j.inf.Namespace;
 import net.sourceforge.argparse4j.inf.Subparser;
 import net.sourceforge.argparse4j.inf.Subparsers;
 
+/**
+ * Class Multipod .
+ */
 public class Multipod {
   protected static String image;
   protected static String tech;
 
+  /**
+   * Method main .
+   */
   public static void main(String[] args) {
     ArgumentParser parser = commandParser();
     try {
@@ -22,6 +28,9 @@ public class Multipod {
 
   }
 
+  /**
+   * Static method commandParser .
+   */
   public static ArgumentParser commandParser() {
     ArgumentParser parser = ArgumentParsers.newFor("Multipod").build()
             .defaultHelp(true)
@@ -42,6 +51,9 @@ public class Multipod {
     return parser;
   }
 
+  /**
+   *Static method parseCmdArgs .
+   */
   public static void parseCmdArgs(ArgumentParser parser, String[] args)
           throws ArgumentParserException {
     Namespace ns = parser.parseArgs(args);
