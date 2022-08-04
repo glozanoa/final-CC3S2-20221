@@ -25,16 +25,8 @@ public abstract class ApiConsumer {
     client = builder.build();
   }
 
-  private OkHttpClient createClient(SocketAddress socket){
-    return null;
-  }
-
-  public void executeRequest(Request request, Callback callback) throws IOException {
-
-    System.out.println("===================== RESTRICTED ZONE =====================");
-
-
-    client.newCall(localRequest).enqueue(callback);
+  public void executeRequest(Request request, Callback callback) {
+    client.newCall(request).enqueue(callback);
   }
 
   public String getUrl(){

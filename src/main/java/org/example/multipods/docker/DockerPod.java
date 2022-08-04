@@ -1,5 +1,6 @@
 package org.example.multipods.docker;
 
+import okhttp3.Callback;
 import okhttp3.FormBody;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -15,7 +16,7 @@ public class DockerPod extends Pod {
   }
 
   @Override
-  public String create() {
+  public void create(Callback callback) {
     System.out.println("Creating the docker pod");
 
     RequestBody requestBody = new FormBody.Builder()
@@ -27,13 +28,6 @@ public class DockerPod extends Pod {
             .url(apiConsumer.getUrl() + "/v1.41/containers/create")
             .build();
 
-    try{
-      apiConsumer.executeRequest(request);
-    }
-    catch (IOException error){
-      System.err.println(error);
-    }
-
-    return "101";
+    apiConsumer.executeRequest(request, callback);
   }
 }

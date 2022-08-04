@@ -1,5 +1,6 @@
 package org.example.multipods.podman;
 
+import okhttp3.Callback;
 import org.example.multipods.Pod;
 import org.example.multipods.PodImage;
 
@@ -9,7 +10,6 @@ public class PodmanPod extends Pod {
   }
 
   @Override
-  public String create() {
-    return "00";
+  public void create(Callback callback) {
   }
 }

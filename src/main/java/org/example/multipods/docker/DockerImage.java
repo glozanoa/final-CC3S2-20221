@@ -1,8 +1,6 @@
 package org.example.multipods.docker;
 
-import okhttp3.FormBody;
-import okhttp3.Request;
-import okhttp3.RequestBody;
+import okhttp3.*;
 import org.example.multipods.PodImage;
 
 import java.io.IOException;
@@ -12,9 +10,10 @@ public class DockerImage extends PodImage {
     super(name, tag);
   }
 
+
   @Override
-  public void pull() {
-    System.out.println("pulling docker image " + super.toString());
+  public void pull(Callback callback) {
+    System.out.println("Pulling docker image " + super.toString());
     RequestBody body = new FormBody.Builder()
             .add("fromImage", getName())
             .add("tag", getTag())
@@ -25,15 +24,6 @@ public class DockerImage extends PodImage {
         .post(body)
         .build();
 
-    System.out.println("request: " + request.toString());
-    System.out.println("request body: "+ request.body().toString());
-
-    try{
-      System.out.println("apiConsumer: " + apiConsumer.toString());
-      super.apiConsumer.executeRequest(request);
-    }
-    catch (IOException error){
-      error.printStackTrace();
-    }
+    apiConsumer.executeRequest(request, callback);
   }
 }

@@ -1,5 +1,7 @@
 package org.example.multipods;
 
+import okhttp3.Callback;
+
 public class PodController {
   private Pod pod;
 
@@ -7,8 +9,8 @@ public class PodController {
     this.pod = pod;
   }
 
-  public String run() {
-    return pod.run();
+  public void run(Callback callback) {
+    pod.run(callback);
   }
 
   public void exec(String cmd) {

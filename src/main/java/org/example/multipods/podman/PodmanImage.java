@@ -1,5 +1,6 @@
 package org.example.multipods.podman;
 
+import okhttp3.Callback;
 import org.example.multipods.PodImage;
 
 public class PodmanImage extends PodImage {
@@ -8,5 +9,7 @@ public class PodmanImage extends PodImage {
   }
 
   @Override
-  public void pull() { }
+  public void pull(Callback callback){
+
+  }
 }
