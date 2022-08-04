@@ -16,7 +16,7 @@ enum Command {
 }
 
 /**
- * Class Multipod .
+ * Clase Multipod que se utiliza para analizar la línea de comandos.
  */
 public class Multipod {
   protected static String image;
