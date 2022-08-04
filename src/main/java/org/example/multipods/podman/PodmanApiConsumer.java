@@ -5,6 +5,9 @@ import java.net.SocketException;
 import org.example.multipods.ApiConsumer;
 import org.newsclub.net.unix.AFUNIXSocketAddress;
 
+/**
+ * Implementación de ApiConsumer para Podman.
+ */
 public class PodmanApiConsumer extends ApiConsumer {
 
   public PodmanApiConsumer() throws SocketException {
