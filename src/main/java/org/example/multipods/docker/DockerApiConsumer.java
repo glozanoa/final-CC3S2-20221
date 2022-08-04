@@ -11,7 +11,7 @@ import java.net.SocketException;
 public class DockerApiConsumer extends ApiConsumer {
 
   public DockerApiConsumer() throws SocketException {
-    super(AFUNIXSocketAddress.of(new File("/var/run/docker.sock")));
+    super(AFUNIXSocketAddress.of(new File("/run/docker.sock")));
   }
 
 }

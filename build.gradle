@@ -52,6 +52,17 @@ pmd {
 }
 
 
+task client(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'org.example.multipods.Client'
+}
+
+task working(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'org.example.multipods.Main'
+}
+
+
 /*
  * DISPLAY TEST RESULTS IN CONSOLE
  */

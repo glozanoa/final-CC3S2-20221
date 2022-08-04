@@ -16,11 +16,12 @@ public class DockerImage extends PodImage {
   public void pull() {
     System.out.println("pulling docker image " + super.toString());
     RequestBody body = new FormBody.Builder()
-        .add("fromImage", super.toString())
-        .build();
+            .add("fromImage", getName())
+            .add("tag", getTag())
+            .build();
 
     Request request = new Request.Builder()
-        .url(apiConsumer.getUrl() + "/v1.41/images/create")
+        .url("http://localhost/v1.41/images/create")
         .post(body)
         .build();
 
@@ -29,7 +30,7 @@ public class DockerImage extends PodImage {
 
     try{
       System.out.println("apiConsumer: " + apiConsumer.toString());
-      apiConsumer.executeRequest(request);
+      super.apiConsumer.executeRequest(request);
     }
     catch (IOException error){
       error.printStackTrace();

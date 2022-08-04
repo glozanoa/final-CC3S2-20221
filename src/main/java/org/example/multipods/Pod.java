@@ -17,7 +17,8 @@ public abstract class Pod {
   public  String run(){
     System.out.println("(Pod.run) Running pod: " + toString());
     pullPodImage();
-    return create();
+    //return create();
+    return "abc";
   }
 
   public abstract String create();

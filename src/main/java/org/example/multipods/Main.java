@@ -25,7 +25,7 @@ import java.time.Duration;
 public class Main {
   public static void main(String[] args) throws IOException {
 
-    SocketAddress addr = AFUNIXSocketAddress.of(new File("/var/run/docker.sock"));
+    SocketAddress addr = AFUNIXSocketAddress.of(new File("/run/docker.sock"));
 
     OkHttpClient.Builder builder = new OkHttpClient.Builder()
         .socketFactory(new AFSocketFactory.FixedAddressSocketFactory(addr))
@@ -35,11 +35,12 @@ public class Main {
 
 
     RequestBody body = new FormBody.Builder()
-        .add("fromImage", "mongo:5.0")
+        .add("fromImage", "python")
+            .add("tag", "3.7")
         .build();
 
     Request request = new Request.Builder()
-        .url("http://127.0.0.1:80/v1.41/images/create")
+        .url("http://localhost/v1.41/images/create")
         .post(body)
         .build();
 
