@@ -14,7 +14,6 @@ import org.example.multipods.podman.PodmanFactory;
  */
 public class Multipod {
   protected static String image;
-  protected static String tech;
 
   /**
    * Method main .

@@ -13,9 +13,6 @@ import org.newsclub.net.unix.AFSocketFactory;
 public abstract class ApiConsumer {
   protected OkHttpClient client;
   private final String ip = "127.0.0.1";
-  //private final int port = 80;
-
-  public ApiConsumer() { }
 
   /**
    * Construct method ApiConsumer .

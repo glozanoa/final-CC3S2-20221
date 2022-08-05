@@ -1,7 +1,6 @@
 package org.example.multipods;
 
 import java.io.IOException;
-import java.util.Random;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;

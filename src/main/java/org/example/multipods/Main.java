@@ -1,12 +1,8 @@
 package org.example.multipods;
 
-//import java.lang.*;
-
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.SocketAddress;
-import java.time.Duration;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
@@ -16,10 +12,6 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 import org.newsclub.net.unix.AFSocketFactory;
 import org.newsclub.net.unix.AFUNIXSocketAddress;
-//import org.newsclub.net.unix.demo.DemoHelper;
-//import org.newsclub.net.unix.jetty.AFSocketClientConnector;
-
-//import com.kohlschutter.util.IOUtil;
 
 /**
  * Main class .
@@ -62,9 +54,5 @@ public class Main {
     };
 
     client.newCall(request).enqueue(callback);
-
-    //System.out.println(response.body().string());
-
-    System.out.println("Hello world!");
   }
 }

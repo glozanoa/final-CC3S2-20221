@@ -9,7 +9,7 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 /**
- * PodManages es una clase singleton que administra varios podControllers.
+ * PodManager es una clase singleton que administra varios podControllers.
  */
 public class PodManager {
   private static Map<String, PodController> controllers;
