@@ -6,6 +6,9 @@ import org.example.multipods.ContainerFactory;
 import org.example.multipods.Pod;
 import org.example.multipods.PodImage;
 
+/**
+ * Fábrica concreta que crea objetos con la tecnología Podman.
+ */
 public class PodmanFactory implements ContainerFactory {
 
   @Override

@@ -7,7 +7,7 @@ import org.example.multipods.Pod;
 import org.example.multipods.PodImage;
 
 /**
- * Class DockerFactory .
+ * Fábrica concreta que crea objetos con la tecnología Docker.
  */
 public class DockerFactory implements ContainerFactory {
 

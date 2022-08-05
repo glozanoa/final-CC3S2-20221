@@ -10,7 +10,7 @@ import org.example.multipods.docker.DockerFactory;
 import org.example.multipods.podman.PodmanFactory;
 
 /**
- * Class Multipod .
+ * Clase Multipod que se utiliza para analizar la línea de comandos.
  */
 public class Multipod {
   protected static String image;
