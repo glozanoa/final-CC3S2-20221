@@ -1,5 +1,6 @@
 package org.example.multipods;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.example.multipods.docker.DockerFactory;
 import org.example.multipods.docker.DockerImage;
 import org.example.multipods.docker.DockerPod;
@@ -9,7 +10,6 @@ import org.example.multipods.podman.PodmanPod;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 class PodManagerTest {
   private PodManager podManager;
