@@ -1,6 +1,5 @@
 package org.example.multipods.docker;
 
-import java.io.IOException;
 import okhttp3.Callback;
 import okhttp3.FormBody;
 import okhttp3.Request;
@@ -9,7 +8,7 @@ import org.example.multipods.Pod;
 import org.example.multipods.PodImage;
 
 /**
- * Class DockerPod .
+ * Implementación de la clase abstracta Pod para la tecnología Docker .
  */
 public class DockerPod extends Pod {
 

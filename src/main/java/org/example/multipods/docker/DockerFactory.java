@@ -5,10 +5,9 @@ import org.example.multipods.ApiConsumer;
 import org.example.multipods.ContainerFactory;
 import org.example.multipods.Pod;
 import org.example.multipods.PodImage;
-import org.example.multipods.podman.PodmanImage;
 
 /**
- * Class DockerFactory .
+ * Fábrica concreta que crea objetos con la tecnología Docker.
  */
 public class DockerFactory implements ContainerFactory {
 

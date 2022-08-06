@@ -14,7 +14,6 @@ public class DockerImage extends PodImage {
     super(name, tag);
   }
 
-
   @Override
   public void pull(Callback callback) {
     System.out.println("Pulling docker image " + super.toString());
@@ -29,6 +28,5 @@ public class DockerImage extends PodImage {
         .build();
 
     apiConsumer.executeRequest(request, callback);
-
   }
 }

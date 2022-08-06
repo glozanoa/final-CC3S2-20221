@@ -5,6 +5,9 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
+/**
+ * CLase abstracta que se encarga del manejo de imágenes.
+ */
 public abstract class PodImage {
   private String name;
   private String tag;
@@ -21,6 +24,9 @@ public abstract class PodImage {
     this.tag = tag;
   }
 
+  /**
+   * Método que maneja la descarga de imágenes.
+   */
   public void pull() {
     Callback emptyCallback = new Callback() {
       @Override

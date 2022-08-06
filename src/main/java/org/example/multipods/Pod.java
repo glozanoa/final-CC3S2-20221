@@ -1,13 +1,12 @@
 package org.example.multipods;
 
 import java.io.IOException;
-import java.util.Random;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
 /**
- * Abstract class Pod .
+ * Clase abstracta Pod que maneja los contenedores en general.
  */
 public abstract class Pod {
   protected PodImage image;

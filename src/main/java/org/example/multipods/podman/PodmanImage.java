@@ -6,13 +6,17 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import org.example.multipods.PodImage;
 
+/**
+ * Implementación de la clase abstracta PodImage para la tecnología Podman.
+ * encargada de manejar las imágenes que se usarán en los contenedores
+ */
 public class PodmanImage extends PodImage {
   public PodmanImage(String name, String tag) {
     super(name, tag);
   }
 
   @Override
-  public void pull(Callback callback){
+  public void pull(Callback callback) {
     System.out.println("Pulling podman image " + super.toString());
 
     RequestBody body = new FormBody.Builder()
