@@ -19,9 +19,13 @@ public class Multipod {
    * Method main .
    */
   public static void main(String[] args) {
+    Namespace ns = null;
     ArgumentParser parser = commandParser();
     try {
-      Namespace ns = parser.parseArgs(args);
+      ns = parser.parseArgs(args);
+    } catch (ArgumentParserException error) {
+      System.err.println(error);
+    }
 
       System.out.println(ns);
 
@@ -60,9 +64,7 @@ public class Multipod {
       }
 
 
-    } catch (ArgumentParserException error) {
-      System.err.println(error);
-    }
+
 
   }
 
