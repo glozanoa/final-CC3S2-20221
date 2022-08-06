@@ -21,7 +21,7 @@ public abstract class ApiConsumer {
   public ApiConsumer(SocketAddress socket) {
     OkHttpClient.Builder builder = new OkHttpClient.Builder()
             .socketFactory(new AFSocketFactory.FixedAddressSocketFactory(socket))
-            .callTimeout(Duration.ofMinutes(1));
+            .callTimeout(Duration.ofMinutes(5));
 
     client = builder.build();
   }
