@@ -6,7 +6,7 @@ import org.example.multipods.ApiConsumer;
 import org.newsclub.net.unix.AFUNIXSocketAddress;
 
 /**
- * Implementación de ApiConsumer para Docker.
+ * Implementación de ApiConsumer para la tecnología Docker.
  */
 public class DockerApiConsumer extends ApiConsumer {
 

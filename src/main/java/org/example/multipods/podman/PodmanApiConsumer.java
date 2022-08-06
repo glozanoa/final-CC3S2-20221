@@ -6,7 +6,7 @@ import org.example.multipods.ApiConsumer;
 import org.newsclub.net.unix.AFUNIXSocketAddress;
 
 /**
- * Implementación de ApiConsumer para Podman.
+ * Implementación de ApiConsumer para la tecnología Podman.
  */
 public class PodmanApiConsumer extends ApiConsumer {
 

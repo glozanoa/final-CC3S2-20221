@@ -8,7 +8,7 @@ import org.example.multipods.Pod;
 import org.example.multipods.PodImage;
 
 /**
- * Class DockerPod .
+ * Implementación de la clase abstracta Pod para la tecnología Docker .
  */
 public class DockerPod extends Pod {
 

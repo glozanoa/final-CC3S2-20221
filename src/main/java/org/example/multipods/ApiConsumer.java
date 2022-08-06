@@ -8,7 +8,7 @@ import okhttp3.Request;
 import org.newsclub.net.unix.AFSocketFactory;
 
 /**
- * Abstract class ApiConsumer .
+ * Clase abstracta ApiConsumer que se encarga del manejo de las APIs en general.
  */
 public abstract class ApiConsumer {
   protected OkHttpClient client;
