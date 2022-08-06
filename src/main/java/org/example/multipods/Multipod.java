@@ -19,12 +19,13 @@ public class Multipod {
    * Method main .
    */
   public static void main(String[] args) {
-    Namespace ns = null;
+    Namespace ns;
     ArgumentParser parser = commandParser();
     try {
       ns = parser.parseArgs(args);
     } catch (ArgumentParserException error) {
       System.err.println(error);
+      ns = null;
     }
 
       System.out.println(ns);
