@@ -11,18 +11,19 @@
 
 ## Quickstart
 
-Get `multipod` subcommands and options
+#### Get `multipod` options
 ```bash
 ./gradlew multipod --args=-h
 ```
 
+#### Pull a docker image
 
-Pull a docker image
 ```bash
-./gradlew multipod --args="-T DOCKER pull mongo 5.0"
+./gradlew multipod --args="-T DOCKER pull python slim"
 ```
 
 #### Run unit tests
+
 ```bash
 ./gradlew test
 ```
@@ -37,6 +38,11 @@ Pull a docker image
 ./gradlew build -x check
 ```
 
+#### Documentation
+
+```bash
+./gradlew javadoc
+```
 
 #### Static Analysis
 
